@@ -2,7 +2,7 @@
     import { page } from '$app/state';
 
     const SITE_URL = 'https://getsyl.app';
-    const SITE_NAME = 'Free Expense Tracking App';
+    const SITE_NAME = 'Syl';
     const DEFAULT_DESCRIPTION = 'Syl is a free expense tracking app for Apple devices';
     let {
         title,
