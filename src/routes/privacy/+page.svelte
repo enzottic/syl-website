@@ -9,7 +9,7 @@
 
 <main>
     <h1>Syl Privacy Policy</h1>
-    <p>Last updated: September 24, 2026</p>
+    <p>Last updated: September 25, 2026</p>
 
 
     Syl keeps your financial data on your devices and, if you choose, in your private
@@ -64,9 +64,21 @@
 
     <h2>Permissions</h2>
 
-    Syl requests camera access for receipt scanning and notification permission for
-    optional reminders. You can change these permissions in iOS Settings and turn
-    reminders off in Syl's notification settings.
+    <p>
+        Syl requests camera access for receipt scanning, Photos access so you can pick a
+        receipt photo, and notification permission for optional reminders. You can
+        change these permissions in iOS Settings and turn reminders off in Syl's
+        notification settings.
+    </p>
+
+    <p>
+        Photos access is optional. If you allow it, Syl shows your photos in a grid so
+        you can choose a receipt. You can share your whole library or only the photos you
+        select, and change that selection from the grid's <em>Manage</em> menu. The photo you
+        choose is read on your device to fill in the expense. Syl doesn't keep a copy of
+        it and doesn't upload your photos. If you don't allow Photos access, <em>All Photos</em>
+        opens the system photo picker, which shares only the photo you pick.
+    </p>
 
     <h2>Feedback and support</h2>
 
