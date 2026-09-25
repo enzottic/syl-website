@@ -21,6 +21,21 @@
         { item: 'Subscription', value: 'NONE' },
         { item: 'Ads', value: 'NONE' },
     ];
+
+    // Picked in the browser so each visit gets a fresh number and today's date; the page
+    // is prerendered, so computing these during render would freeze them at build time.
+    let orderNumber = $state('00000');
+    let transactionDate = $state('--- --, ----');
+
+    $effect(() => {
+        orderNumber = Math.floor(Math.random() * 100_000)
+            .toString()
+            .padStart(5, '0');
+
+        transactionDate = new Date()
+            .toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
+            .toUpperCase();
+    });
 </script>
 
 <div class="receipt-wrap">
@@ -32,12 +47,12 @@
         </header>
 
         <div class="meta">
-            <span>ORDER #0001</span>
+            <span>ORDER #{orderNumber}</span>
             <span>IPHONE · IPAD</span>
         </div>
         <div class="meta">
             <span>CASHIER: ENZO</span>
-            <span>COPY: CUSTOMER</span>
+            <span>{transactionDate}</span>
         </div>
 
         <hr />
@@ -96,6 +111,7 @@
         <footer class="receipt-footer">
             <div class="barcode" aria-hidden="true"></div>
         </footer>
+        <p class="section-label">THANK YOU FOR DOWNLOADING!</p>
     </article>
 </div>
 
