@@ -1,9 +1,14 @@
 <script lang="ts">
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+
 	let { children } = $props();
 </script>
 
 <div class="container">
+    <Header />
     {@render children()}
+    <Footer />
 </div>
 
 <style>
@@ -58,9 +63,5 @@
         .container {
             width: 94%;
         }
-    }
-
-    footer {
-        min-height: 50px;
     }
 </style>

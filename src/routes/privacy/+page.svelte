@@ -9,7 +9,7 @@
 
 <main>
     <h1>Syl Privacy Policy</h1>
-    <p>Last updated: September 14, 2026</p>
+    <p>Last updated: September 24, 2026</p>
 
 
     Syl keeps your financial data on your devices and, if you choose, in your private
@@ -75,7 +75,7 @@
     your app version, iOS version, and device model. You can edit or cancel the
     message before sending it; your expense database is not automatically attached.
 
-    You can request deletion of support correspondence by emailing hi@enzottic.me.
+    You can request deletion of support correspondence by emailing <a href="mailto:contact@getsyl.app">contact@getsyl.app</a>.
 
     <h2>This website</h2>
 
@@ -93,6 +93,12 @@
 
     <h2>Contact</h2>
 
-    For privacy questions or requests, send an email to <a href="mailto:hi@enzottic.me">hi@enzottic.me</a>
+    For privacy questions or requests, send an email to <a href="mailto:contact@getsyl.app">contact@getsyl.app</a>
 
 </main>
+
+<style>
+    main {
+        padding: 1rem 1rem 4rem;
+    }
+</style>
