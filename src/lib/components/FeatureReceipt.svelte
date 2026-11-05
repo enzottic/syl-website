@@ -3,13 +3,18 @@
     import '@fontsource/doto/800.css';
     import '@fontsource/doto/900.css';
 
-    type Line = { item: string; value: string; note?: string };
+    type Line = { item: string; value: string; note?: string; footnote?: string };
 
     const features: Line[] = [
         { item: 'Budgets', value: '0.00', note: 'each expense is a want, a need, or set aside for savings'},
         { item: 'Tags', value: '0.00', note: 'further categorize your expenses' },
-        { item: 'Receipt parsing', value: '0.00', note: 'parse receipts with an on-device model' },
-        { item: 'iCloud sync', value: '0.00', note: 'optional, tracking your spending across devices' },
+        {
+            item: 'Receipt parsing',
+            value: '0.00',
+            note: 'parse receipts with an on-device model',
+            footnote: 'Receipt parsing requires a device that supports Apple Intelligence'
+        },
+        { item: 'iCloud sync', value: '0.00', note: 'sync your spending across Apple devices' },
         { item: 'Spending stats', value: '0.00', note: 'trends over time' },
         { item: 'Recurring expenses', value: '0.00', note: 'track those subscriptions'},
         { item: 'Home screen widgets', value: '0.00', note: 'monthly summary at a glance' },
@@ -21,6 +26,13 @@
         { item: 'Subscription', value: 'NONE' },
         { item: 'Ads', value: 'NONE' },
     ];
+
+    // Receipt-style fine print: each footnoted line gets its own run of asterisks (*, **, …)
+    const footnotes = features
+        .filter((line) => line.footnote)
+        .map((line, i) => ({ item: line.item, marker: '*'.repeat(i + 1), text: line.footnote! }));
+
+    const markerFor = (item: string) => footnotes.find((f) => f.item === item)?.marker;
 
     // Picked in the browser so each visit gets a fresh number and today's date; the page
     // is prerendered, so computing these during render would freeze them at build time.
@@ -67,7 +79,7 @@
                         <span class="value">{line.value}</span>
                     </div>
                     {#if line.note}
-                        <p class="note">{line.note}</p>
+                        <p class="note">{line.note}{markerFor(line.item) ?? ''}</p>
                     {/if}
                 </li>
             {/each}
@@ -107,6 +119,14 @@
         </div>
 
         <hr />
+
+        {#if footnotes.length}
+            <div class="fine-print">
+                {#each footnotes as footnote}
+                    <p>{footnote.marker}{footnote.text}</p>
+                {/each}
+            </div>
+        {/if}
 
         <footer class="receipt-footer">
             <div class="barcode" aria-hidden="true"></div>
@@ -221,6 +241,14 @@
         padding-left: 2ch;
         font-size: 0.72rem;
         opacity: 0.6;
+    }
+
+    .fine-print {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        opacity: 0.6;
+        text-align: center;
+        margin-bottom: 0.5rem;
     }
 
     .total {

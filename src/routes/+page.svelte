@@ -35,8 +35,7 @@
             </h2>
             <p>
                 Syl is free. There's no account to create, no subscription, and no ads.
-                Your expenses live on your device, and only sync through your own iCloud
-                if you turn it on.
+                Your expenses stay synced across all your devices.
             </p>
         </div>
 
