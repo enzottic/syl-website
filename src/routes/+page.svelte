@@ -3,6 +3,9 @@
     import sageHero from '$lib/images/sage_hero.png';
     import Seo from '$lib/components/Seo.svelte';
     import FeatureReceipt from '$lib/components/FeatureReceipt.svelte';
+    import appStoreBadge from '$lib/images/app-store-badge.svg';
+
+    const APP_STORE_URL = 'https://apps.apple.com/us/app/syl-personal-expense-tracker/id6777494304';
 
 </script>
 
@@ -16,9 +19,9 @@
     <div class="hero">
         <div class="hero-text">
             <h1 class="title hero-title">A free expense tracking and budgeting app</h1>
-            <p>Coming soon for iOS and iPadOS</p>
-            <a href="https://testflight.apple.com/join/RWj66HUZ">
-                <text>Download now on TestFlight</text>
+            <p>Available now for iOS and iPadOS</p>
+            <a class="app-store-badge" href={APP_STORE_URL}>
+                <img src={appStoreBadge} alt="Download on the App Store" />
             </a>
         </div>
 
@@ -82,6 +85,17 @@ main {
 
 .title {
     font-size: 3rem;
+}
+
+.app-store-badge {
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.app-store-badge img {
+    display: block;
+    height: 54px;
+    width: auto;
 }
 
 .hero-title {
